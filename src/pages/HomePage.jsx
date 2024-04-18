@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTrending } from "../service/movieApi";
 import MovieList from "../components/movieList/MovieList";
+import Loader from "../components/loader/Loader";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -12,7 +13,7 @@ const HomePage = () => {
       setIsLoading(true);
       try {
         const data = await getTrending();
-        setMovies(data);
+        setMovies(data.results);
       } catch (error) {
         setError(error);
       } finally {
@@ -24,10 +25,12 @@ const HomePage = () => {
 
   return (
     <main>
+      <div>
       <h1>Trending today</h1>
-      <MovieList movies={movies}/>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loader />}
       {error && <p>Sorry, something went wrong</p>}
+      {movies.length > 0 && <MovieList movies={movies} />}
+      </div>
     </main>
   );
 };
