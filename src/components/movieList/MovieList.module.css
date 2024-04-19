@@ -1,0 +1,11 @@
+.linkTitle {
+    color: black;
+}
+
+.linkTitle:hover {
+    color: rgb(196, 34, 34);
+}
+
+.movieList {
+    text-align: start;
+}

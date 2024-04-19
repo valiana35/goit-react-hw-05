@@ -1,18 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovie } from "../service/movieApi";
 import BackLink from "../components/backLink/BackLink";
 import MovieInfo from "../components/movieInfo/MovieInfo";
-// import MovieCast from "../components/movieCast/MovieCast";
-// import MovieReviews from "../components/movieReviews/MovieReviews";
 import Loader from "../components/loader/Loader";
+import "./Pages.css";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
-  const goBackLink = useRef(location?.state ?? "/");
+  const goBackLink = useRef(location?.state ?? "/movies");
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -36,10 +35,20 @@ const MovieDetailsPage = () => {
       {error && <p>Sorry, something went wrong</p>}
       <BackLink to={goBackLink.current}>Go back</BackLink>
       {movie && <MovieInfo movie={movie} />}
+      <h2>Additional information</h2>
+      {!isLoading && (
+        <div>
+          <Link to="cast" className="linkCast">
+            Cast
+          </Link>
+          <Link to="reviews" className="linkReviews">
+            Reviews
+          </Link>
+        </div>
+      )}
+      <Outlet />
     </main>
   );
 };
 
 export default MovieDetailsPage;
-
-// const {id, title, overview, poster_path, popularity, media_type, release_date} = params

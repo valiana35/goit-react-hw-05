@@ -1,10 +1,12 @@
+import css from "./MovieInfo.module.css";
+
 const MovieInfo = ({
   movie: { title, overview, poster_path, popularity, media_type, release_date },
 }) => {
   return (
     <div>
-      <div>
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path} alt=${title} width="280"`} />
+      <div className={css.movieImg}>
+        <img src={poster_path && `https://image.tmdb.org/t/p/w500${poster_path} alt=${title} width="500"`} />
       </div>
       <div>
         <h2>{title} ({release_date.slice(0, 4)})</h2>

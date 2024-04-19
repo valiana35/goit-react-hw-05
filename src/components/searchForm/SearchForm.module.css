@@ -1,0 +1,23 @@
+.form {
+    width: 350px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.btn {
+    background-color: rgb(221, 62, 84);
+    border-radius: 4px;
+    color: antiquewhite;
+    height: 50px;
+    margin-left: 20px;
+}
+
+.input {
+    width: auto;
+    height: 48px;
+    background-color: antiquewhite;
+    border-radius: 4px;
+    font-size: medium;
+    border: 3px solid rgb(181, 99, 12);
+    outline: transparent;
+}

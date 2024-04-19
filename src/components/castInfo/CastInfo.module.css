@@ -1,0 +1,11 @@
+.castList {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    gap: 30px;
+}
+
+.textImg {
+    font-weight: bold;
+    font-size: large;
+    color: rgb(35, 152, 113);
+}

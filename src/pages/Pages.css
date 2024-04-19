@@ -1,0 +1,21 @@
+.linkCast {
+    margin-right: 10px;
+    color: black;
+}
+
+.linkCast:hover {
+    color: rgb(196, 34, 34);
+}
+
+.linkReviews {
+    color: black;
+}
+
+.linkReviews:hover {
+    color: rgb(196, 34, 34);
+}
+
+.formSearch {
+    display: flex;
+    justify-content: center;
+}
